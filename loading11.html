@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Personal Profile</title>
+    <title>Landing Page</title>
     <style>
       body {
-        background-color: #f2f2f2;
+        background: url("https://bit.ly/43bctpq") no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
         font-family: Arial, sans-serif;
       }
-      .loader {
-        border: 8px solid #ccc;
-        border-top: 8px solid #0a81ab;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        animation: spin 2s linear infinite;
+      
+      .container {
+        max-width: 800px;
         margin: 0 auto;
-        margin-top: 50px;
+        text-align: center;
+        padding: 50px;
       }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
+      
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
       }
-      .logo {
-        border-radius: 50%;
-        width: 400px;
-        height: 400px;
-        display: block;
-        margin: 0 auto;
-        margin-top: 50px;
-        border: 8px solid #0a81ab;
-        animation: fadein 2s linear;
+      
+      p {
+        font-size: 24px;
+        margin-bottom: 40px;
       }
-      @keyframes fadein {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
+      
+      button {
+        background-color: #008CBA;
+        color: #fff;
+        font-size: 24px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #005f7f;
+      }
+      
+      input[type=text] {
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 20px;
+        width: 80%;
+        max-width: 400px;
+      }
+      
+      .copy-message {
+        display: none;
+        font-size: 20px;
+        margin-bottom: 20px;
       }
     </style>
   </head>
   <body>
-    <h1>Redirecting, please wait...</h1>
-    <div class="loader"></div>
-    <img class="logo" src="https://ggle.io/5dLm" alt="Logo" />
+    <div class="container">
+      <h1>Welcome to our Landing Page</h1>
+      <p>We have the best products in town! Enter your email address below to receive a link to our site.</p>
+      <input type="text" id="email-address" placeholder="Enter your email address...">
+      <button onclick="copyLink()">Copy Link</button>
+      <p class="copy-message" id="copy-message">Link copied to clipboard!</p>
+    </div>
+    
     <script>
-      const delayRedirect = (url, delay) => {
-        setTimeout(() => {
-          window.location.href = url;
-        }, delay);
-      };
-      const url = "https://teambl.netlify.app/link11";
-      const delay = 5000; // 5 seconds
-      delayRedirect(url, delay);
+      function copyLink() {
+        var link = "https://ytube4.netlify.app/4u1";
+        var input = document.createElement("input");
+        input.setAttribute("value", link);
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        document.body.removeChild(input);
+        document.getElementById("copy-message").style.display = "block";
+      }
     </script>
   </body>
 </html>
